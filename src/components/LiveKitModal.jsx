@@ -7,12 +7,14 @@ const LiveKitModal = ({ setShowSupport }) => {
   const [isSubmittingName, setIsSubmittingName] = useState(true);
   const [name, setName] = useState("");
   const [token, setToken] = useState(null);
+  const API = import.meta.env.VITE_API_BASE_URL
+  const LIVEKIT = import.meta.env.VITE_LIVEKIT_URL
 
   const getToken = useCallback(async (userName) => {
-  try {
-    const response = await fetch(
-      `/api/getToken?name=${encodeURIComponent(userName)}`
-    );
+  try {   
+    
+    const response = await fetch(`/api/getToken?name=${encodeURIComponent(userName)}`)
+
     const token = await response.text();
     setToken(token);
     setIsSubmittingName(false);
@@ -51,7 +53,7 @@ const LiveKitModal = ({ setShowSupport }) => {
                     </form>
                 ) : token ? (
                   <LiveKitRoom
-                    serverUrl={import.meta.env.VITE_LIVEKIT_URL}
+                    serverUrl={LIVEKIT}
                     token={token}
                     connect={true}
                     video={false}
