@@ -19,7 +19,7 @@ const LiveKitModal = ({ setShowSupport }) => {
   const getToken = useCallback(async (userName) => {
   try {   
     
-    const response = await fetch(`/api/getToken?name=${encodeURIComponent(userName)}`)
+    const response = await fetch(`${API}/getToken?name=${encodeURIComponent(userName)}`)
 
     const token = await response.text();
     setToken(token);
