@@ -12,8 +12,7 @@ const LiveKitModal = ({ setShowSupport }) => {
   //const API = import.meta.env.VITE_API_BASE_URL
   //const LIVEKIT = import.meta.env.VITE_LIVEKIT_URL
     // Hard-coded endpoints for production
-  const API     = "https://cavaai-api.azurewebsites.net"
-  const LIVEKIT = "wss://cavaagent-8ar4xmei.livekit.cloud"
+
 
 
   const getToken = useCallback(async (userName) => {
